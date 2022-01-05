@@ -1,0 +1,82 @@
+﻿<Window x:Class="Supervision.Views.EntityViews.ProductTypeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:wpfx="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
+        mc:Ignorable="d" 
+      Style="{StaticResource StandardWindow}"
+      d:DesignHeight="400" d:DesignWidth="500"
+        Height="400" Width="500"
+      WindowStartupLocation="CenterScreen" 
+        WindowState="Normal"
+      Title="Тип продукции">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <DataGrid Style="{StaticResource StandardDataGrid}"
+                MinRowHeight="10"
+                IsReadOnly="False"
+                Height="auto" 
+                HorizontalContentAlignment="Stretch"
+                ItemsSource="{Binding AllInstancesView}"
+                SelectedItem="{Binding SelectedItem}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID"
+                                    Width="auto"
+                                    Binding="{Binding Path = Id}" 
+                                    TextBlock.TextAlignment="Center">
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Наименование" 
+                                    Width="auto" 
+                                    Binding="{Binding Path = Name}" 
+                                    TextBlock.TextAlignment="Center" >
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header=" Сокращенное&#x0a;наименование"
+                                    Width="auto" 
+                                    Binding="{Binding Path= ShortName}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <wpfx:BusyIndicator IsBusy="{Binding IsBusy}"
+                            BusyContent="Обработка запроса, ждите..."/>
+
+        <Separator Style="{StaticResource HorizontalSeparator}" 
+                   Grid.Row="1"/>
+
+        <Grid Grid.Row="2"  Height="50" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <Button Style="{StaticResource StandardButton}"
+                    Content="Добавить" Margin="10" Command="{Binding AddNewItemCommand}"
+                    Width="100"/>
+
+                <Button  Style="{StaticResource StandardButton}" 
+                    Content="Удалить" Margin="10" Command="{Binding RemoveSelectedItemCommand}"
+                    Width="100"
+                    HorizontalAlignment="Right"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button Style="{StaticResource StandardButton}"
+                    Content="Сохранить" Margin="10" Command="{Binding SaveItemsCommand}"
+                    Width="100"/>
+
+                <Button Style="{StaticResource StandardButton}" 
+                    Content="Закрыть" Margin="10" Command="{Binding CloseWindowCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Width="100"
+                    HorizontalAlignment="Right"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

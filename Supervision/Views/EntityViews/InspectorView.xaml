@@ -1,0 +1,129 @@
+﻿<Window x:Class="Supervision.Views.EntityViews.InspectorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:wpfx="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit/extended"
+        mc:Ignorable="d" 
+        Style="{StaticResource StandardWindow}"
+        d:DesignHeight="500" d:DesignWidth="800"
+        WindowStartupLocation="CenterScreen"
+        Title="Персонал">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="0" 
+                    Orientation="Horizontal" 
+                    Margin="5 5 0 0">
+            <TextBlock Text="ФИО" 
+                       Style="{StaticResource StandardTextBlock}" 
+                       Margin="5 0 5 0" 
+                       VerticalAlignment="Center"/>
+
+            <TextBox Style="{StaticResource StandardTextBox}"   
+                     Width="100"
+                     Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+
+            <TextBlock Text="Служба" 
+                       Style="{StaticResource StandardTextBlock}" 
+                       Margin="5 0 5 0" 
+                       VerticalAlignment="Center"/>
+            
+            <TextBox Style="{StaticResource StandardTextBox}" 
+                       Width="100"
+                       Text="{Binding Department, UpdateSourceTrigger=PropertyChanged}" />
+            
+            <TextBlock Text="Управление" 
+                       Style="{StaticResource StandardTextBlock}"
+                       Margin="5 0 5 0" 
+                       VerticalAlignment="Center"/>
+            
+            <TextBox Style="{StaticResource StandardTextBox}" 
+                       Width="100"
+                       Text="{Binding Subdivision, UpdateSourceTrigger=PropertyChanged}" />
+        </StackPanel>
+
+        <Separator Style="{StaticResource HorizontalSeparator}" 
+                   Grid.Row="1"/>
+
+        <DataGrid Style="{StaticResource StandardMainDataGrid}"
+                  Grid.Row="2" 
+                  ItemsSource="{Binding AllInstancesView}"
+                  SelectedItem="{Binding SelectedItem}"
+                  MinRowHeight="10"
+                  IsReadOnly="False"
+                  Height="auto" 
+                  HorizontalContentAlignment="Stretch">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" 
+                                    Width="auto" 
+                                    Binding="{Binding Path = Id}" 
+                                    TextBlock.TextAlignment="Center">
+                </DataGridTextColumn>
+                
+                <DataGridTextColumn Header="ФИО" 
+                                    Width="auto" 
+                                    Binding="{Binding Path = Name}" 
+                                    TextBlock.TextAlignment="Center" >
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Должность" 
+                                    Width="auto" 
+                                    Binding="{Binding Path = Apointment}" 
+                                    TextBlock.TextAlignment="Center" >
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Header="Служба" 
+                                    Width="auto" 
+                                    Binding="{Binding Path= Department}"/>
+                
+                <DataGridTextColumn Header="Управление" 
+                                    Width="auto" 
+                                    Binding ="{Binding Path = Subdivision}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Separator Style="{StaticResource HorizontalSeparator}" 
+                   Grid.Row="3"/>
+
+        <Grid Grid.Row="4"  Height="50" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                <Button Style="{StaticResource StandardButton}"
+                    Content="Добавить" Margin="10" Command="{Binding AddNewItemCommand}"
+                    Width="100"/>
+
+                <Button  Style="{StaticResource StandardButton}" 
+                    Content="Удалить" Margin="10" Command="{Binding RemoveSelectedItemCommand}"
+                    Width="100"
+                    HorizontalAlignment="Right"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <!--<Button Style="{StaticResource StandardButton}"
+                    Content="Сохранить" Margin="10" Command="{Binding SaveItemsCommand}"
+                    Width="100"/>-->
+
+                <Button Style="{StaticResource StandardButton}" 
+                    Content="Закрыть" Margin="10" Command="{Binding CloseWindowCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}"
+                    Width="100"
+                    HorizontalAlignment="Right"/>
+            </StackPanel>
+            
+        </Grid>
+
+        <wpfx:BusyIndicator IsBusy="{Binding IsBusy}"
+                            Grid.Row="2"
+                            BusyContent="Обработка запроса, ждите..."/>
+    </Grid>
+</Window>

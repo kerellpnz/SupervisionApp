@@ -1,0 +1,1357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" />
+  <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
+  <Import Project="..\packages\SQLite.3.13.0\build\net45\SQLite.props" Condition="Exists('..\packages\SQLite.3.13.0\build\net45\SQLite.props')" />
+  <Import Project="..\packages\PropertyChanged.Fody.3.1.3\build\PropertyChanged.Fody.props" Condition="Exists('..\packages\PropertyChanged.Fody.3.1.3\build\PropertyChanged.Fody.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2EFA811E-1068-44AF-856F-7BEA85A7AAD0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Supervision</RootNamespace>
+    <AssemblyName>Supervision</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>false</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>945E6D399F2F6485AC122E8F44F0DCE475438B6B</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Supervision_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Transneft lcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CalcBinding, Version=2.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CalcBinding.2.5.2\lib\net45\CalcBinding.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlzEx, Version=3.0.2.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\ControlzEx.dll</HintPath>
+    </Reference>
+    <Reference Include="DataGridExtensions, Version=2.3.0.0, Culture=neutral, PublicKeyToken=43de855f87de903a, processorArchitecture=MSIL">
+      <HintPath>..\packages\DataGridExtensions.2.3.0\lib\net45\DataGridExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm, Version=18.2.0.0, Culture=neutral, PublicKeyToken=382ad28f6ae31f30, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpressMvvm.18.2.3\lib\net452\DevExpress.Mvvm.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.UI, Version=18.2.0.0, Culture=neutral, PublicKeyToken=382ad28f6ae31f30, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExpressMvvm.18.2.3\lib\net452\DevExpress.Mvvm.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="DynamicExpresso.Core, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicExpresso.Core.2.3.1\lib\net461\DynamicExpresso.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=5.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.5.1.0\lib\net45\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Hosting.Server.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Hosting.Server.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.3.0.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Sqlite, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Sqlite.Core.3.0.0\lib\netstandard2.0\Microsoft.Data.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.3.0.0\lib\net45\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\lib\net461\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational.Design, Version=1.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.Design.1.1.6\lib\net451\Microsoft.EntityFrameworkCore.Relational.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Sqlite, Version=2.2.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Sqlite.Core.2.2.6\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Sqlite.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Sqlite.Design, Version=1.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Sqlite.Design.1.1.6\lib\net451\Microsoft.EntityFrameworkCore.Sqlite.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.0.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.0.0\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.0.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.0.0\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.3.0.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.FileProviders.Abstractions.3.0.0\lib\netstandard2.0\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Hosting.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Hosting.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Hosting.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.0.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.0.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.0.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.3\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework.Aero" />
+    <Reference Include="PropertyChanged, Version=3.1.3.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.3.1.3\lib\net40\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="Remotion.Linq, Version=2.2.0.0, Culture=neutral, PublicKeyToken=fee00910d6e5f53b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Remotion.Linq.2.2.0\lib\net45\Remotion.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.batteries_v2, Version=2.0.1.610, Culture=neutral, PublicKeyToken=8226ea5df37bcae9, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.2.0.1\lib\net461\SQLitePCLRaw.batteries_v2.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.core, Version=2.0.1.610, Culture=neutral, PublicKeyToken=1488e028ca7ab535, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.core.2.0.1\lib\netstandard2.0\SQLitePCLRaw.core.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.nativelibrary, Version=2.0.1.610, Culture=neutral, PublicKeyToken=502ed628492ab262, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.bundle_green.2.0.1\lib\net461\SQLitePCLRaw.nativelibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.dynamic_cdecl, Version=2.0.1.610, Culture=neutral, PublicKeyToken=b68184102cba0b3b, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.dynamic_cdecl.2.0.1\lib\netstandard2.0\SQLitePCLRaw.provider.dynamic_cdecl.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCLRaw.provider.e_sqlite3, Version=1.1.12.351, Culture=neutral, PublicKeyToken=9c301db686d0bd12, processorArchitecture=MSIL">
+      <HintPath>..\packages\SQLitePCLRaw.provider.e_sqlite3.net45.1.1.12\lib\net45\SQLitePCLRaw.provider.e_sqlite3.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.6.0\lib\netstandard2.0\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.6.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Interactive.Async, Version=3.2.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Interactive.Async.3.2.0\lib\net46\System.Interactive.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.4.6.0\lib\netstandard2.0\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Async, Version=4.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Async.4.0.0\lib\net461\System.Linq.Async.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.6.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Extensions.4.3.1\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.RegularExpressions.4.3.1\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks" />
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.3\lib\netstandard2.0\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infragistics.Themes.MetroLight.Wpf.1.0.0\lib\net40\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infragistics.Themes.MetroLight.Wpf.1.0.0\lib\net40\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.3.0.2.4\lib\net462\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Xml.ReaderWriter.4.3.1\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WPFToolkit.Extended">
+      <HintPath>.\WPFToolkit.Extended.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit">
+      <HintPath>..\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Commands\AsyncCommand.cs" />
+    <Compile Include="Commands\Command.cs" />
+    <Compile Include="Commands\IAsyncCommand.cs" />
+    <Compile Include="Commands\IErrorHandler.cs" />
+    <Compile Include="Commands\TaskUtilities.cs" />
+    <Compile Include="Helpers\EnumBindingSourceExtensions.cs" />
+    <Compile Include="Styles\ProjectStyles\CloseTabItemAction.cs" />
+    <Compile Include="Styles\ProjectStyles\ComboBoxStyles.xaml.cs">
+      <DependentUpon>ComboBoxStyles.xaml</DependentUpon>
+      <Generator>MSBuild:Compile</Generator>
+    </Compile>
+    <Compile Include="ViewModels\DailyWorkReportVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\MainFlangeSealingEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\MainFlangeSealingVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\ColumnEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\ColumnVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\CoverSleeve008EditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\CoverSleeve008VM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\Ring043EditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\Ring043VM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\Ring047EditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\Ring047VM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\SheetGateValveCoverEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\SheetGateValveCoverVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\SheetGateValveCaseEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\SheetGateValveCaseVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\AnticorrosiveCoating\AbovegroundCoatingEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\AnticorrosiveCoating\AbrasiveMaterialEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\AnticorrosiveCoating\UndercoatEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\AnticorrosiveCoating\AbrasiveMaterialVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\AnticorrosiveCoating\UndergroundCoatingEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\AnticorrosiveCoating\AbovegroundCoatingVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\AnticorrosiveCoating\UndercoatVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\AnticorrosiveCoating\UndergroundCoatingVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\PeriodicalControl\NDTPeriodicalControlEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\PeriodicalControl\NDTPeriodicalControlVM.cs" />
+    <Compile Include="ViewModels\FileWorkViewModels\AddFileVM.cs" />
+    <Compile Include="ViewModels\JournalReportVM.cs" />
+    <Compile Include="ViewModels\FOMReportVM.cs" />
+    <Compile Include="ViewModels\DailyReportVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\AssemblyUnit\SheetGateValveEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\AssemblyUnit\SheetGateValveVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\NozzleEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\NozzleVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\RunningSleeveEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\RunningSleeveVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\CounterFlangeEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\AssemblyUnitSealingEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\FrontalSaddleSealingEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\AssemblyUnitSealingVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\ScrewNutEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\FrontalSaddleSealingVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\ScrewStudEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\ScrewNutVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\SaddleEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\SaddleVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\GateEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\GateVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\SpringEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\ShearPinEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\ScrewStudVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\SpringVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\SpindleEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\CounterFlangeVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\ShearPinVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\Valve\SpindleVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\CoverFlangeEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\CoverFlangeVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\CoverSleeveEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\CoverSleeveVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\CaseBottomEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\DetailViewModels\WeldGateValve\CaseBottomVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\ControlWeldEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\FactoryInspectionVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\StoresControlVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\WeldingMaterialEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\ControlWeldVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\WeldingMaterialVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\ForgingMaterialEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\RolledMaterialEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\PipeMaterialEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\ForgingMaterialVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\RolledMaterialVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\SheetMaterialEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\PipeMaterialVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\Materials\SheetMaterialVM.cs" />
+    <Compile Include="ViewModels\CustomerVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\PeriodicalControl\Gate\CoatingProtectivePropertiesVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\PeriodicalControl\Gate\CoatingPlasticityVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\PeriodicalControl\Gate\CoatingPorosityVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\PeriodicalControl\Gate\CoatingChemicalCompositionVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\PeriodicalControl\Gate\DegreasingChemicalCompositionVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\PeriodicalControl\WeldingPeriodicalControlEditVM.cs" />
+    <Compile Include="ViewModels\EntityViewModels\PeriodicalControl\WeldingPeriodicalControlVM.cs" />
+    <Compile Include="ViewModels\PIDEditVM.cs" />
+    <Compile Include="ViewModels\ServiceCommandsVM.cs" />
+    <Compile Include="ViewModels\SpecificationVM.cs" />
+    <Compile Include="ViewModels\ProductTypeViewModel.cs" />
+    <Compile Include="ViewModels\JournalNumbersViewModel.cs" />
+    <Compile Include="ViewModels\TCPViewModels\TCPViewModel.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="Views\BallValveMenu.xaml.cs">
+      <DependentUpon>BallValveMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailyWorkReportView.xaml.cs">
+      <DependentUpon>DailyWorkReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\MainFlangeSealingEditView.xaml.cs">
+      <DependentUpon>MainFlangeSealingEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\MainFlangeSealingView.xaml.cs">
+      <DependentUpon>MainFlangeSealingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\ColumnEditView.xaml.cs">
+      <DependentUpon>ColumnEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\ColumnView.xaml.cs">
+      <DependentUpon>ColumnView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\CoverSleeve008EditView.xaml.cs">
+      <DependentUpon>CoverSleeve008EditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\CoverSleeve008View.xaml.cs">
+      <DependentUpon>CoverSleeve008View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\Ring043EditView.xaml.cs">
+      <DependentUpon>Ring043EditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\Ring043View.xaml.cs">
+      <DependentUpon>Ring043View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\Ring047EditView.xaml.cs">
+      <DependentUpon>Ring047EditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\Ring047View.xaml.cs">
+      <DependentUpon>Ring047View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\ServiceWindow.xaml.cs">
+      <DependentUpon>ServiceWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileWorkViews\FileStorageView.xaml.cs">
+      <DependentUpon>FileStorageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileWorkViews\AddFileView.xaml.cs">
+      <DependentUpon>AddFileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\PasswordWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewModels\PasswordWindow.Designer.cs">
+      <DependentUpon>PasswordWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InputControlTCPPage.xaml.cs">
+      <DependentUpon>InputControlTCPPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\JournalReportView.xaml.cs">
+      <DependentUpon>JournalReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FOMReportView.xaml.cs">
+      <DependentUpon>FOMReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DailyReportView.xaml.cs">
+      <DependentUpon>DailyReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PeriodicalControlTCPPage.xaml.cs">
+      <DependentUpon>PeriodicalControlTCPPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SheetGateValveMenu.xaml.cs">
+      <DependentUpon>SheetGateValveMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\AssemblyUnit\SheetGateValveEditView.xaml.cs">
+      <DependentUpon>SheetGateValveEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\AssemblyUnit\SheetGateValveView.xaml.cs">
+      <DependentUpon>SheetGateValveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\RunningSleeveView.xaml.cs">
+      <DependentUpon>RunningSleeveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\NozzleEditView.xaml.cs">
+      <DependentUpon>NozzleEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\NozzleView.xaml.cs">
+      <DependentUpon>NozzleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\RunningSleeveEditView.xaml.cs">
+      <DependentUpon>RunningSleeveEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\CounterFangeEditView.xaml.cs">
+      <DependentUpon>CounterFangeEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\AssemblyUnitSealingEditView.xaml.cs">
+      <DependentUpon>AssemblyUnitSealingEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\FrontalSaddleSealingEditView.xaml.cs">
+      <DependentUpon>FrontalSaddleSealingEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\AssemblyUnitSealingView.xaml.cs">
+      <DependentUpon>AssemblyUnitSealingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\ScrewNutEditView.xaml.cs">
+      <DependentUpon>ScrewNutEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\FrontalSaddleSealingView.xaml.cs">
+      <DependentUpon>FrontalSaddleSealingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\ScrewStudEditView.xaml.cs">
+      <DependentUpon>ScrewStudEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\ScrewNutView.xaml.cs">
+      <DependentUpon>ScrewNutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\SaddleEditView.xaml.cs">
+      <DependentUpon>SaddleEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\SaddleView.xaml.cs">
+      <DependentUpon>SaddleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\GateEditView.xaml.cs">
+      <DependentUpon>GateEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\GateView.xaml.cs">
+      <DependentUpon>GateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\SpringEditView.xaml.cs">
+      <DependentUpon>SpringEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\ShearPinEditView.xaml.cs">
+      <DependentUpon>ShearPinEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\ScrewStudView.xaml.cs">
+      <DependentUpon>ScrewStudView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\SpringView.xaml.cs">
+      <DependentUpon>SpringView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\SpindleEditView.xaml.cs">
+      <DependentUpon>SpindleEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\CounterFlangeView.xaml.cs">
+      <DependentUpon>CounterFlangeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\ShearPinView.xaml.cs">
+      <DependentUpon>ShearPinView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\Valve\SpindleView.xaml.cs">
+      <DependentUpon>SpindleView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\CoverFlangeEditView.xaml.cs">
+      <DependentUpon>CoverFlangeEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\CoverFlangeView.xaml.cs">
+      <DependentUpon>CoverFlangeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\WeldGateValveCaseEditView.xaml.cs">
+      <DependentUpon>WeldGateValveCaseEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\WeldGateValveCoverEditView.xaml.cs">
+      <DependentUpon>WeldGateValveCoverEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\CoverSleeveEditView.xaml.cs">
+      <DependentUpon>CoverSleeveEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\WeldGateValveCaseView.xaml.cs">
+      <DependentUpon>WeldGateValveCaseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\WeldGateValveCoverView.xaml.cs">
+      <DependentUpon>WeldGateValveCoverView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\CoverSleeveView.xaml.cs">
+      <DependentUpon>CoverSleeveView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\CaseBottomEditView.xaml.cs">
+      <DependentUpon>CaseBottomEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\DetailViews\WeldGateValve\CaseBottomView.xaml.cs">
+      <DependentUpon>CaseBottomView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\AnticorrosiveCoating\BaseAnticorrosiveCoatingEditView.xaml.cs">
+      <DependentUpon>BaseAnticorrosiveCoatingEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\AnticorrosiveCoating\BaseAnticorrosiveCoatingView.xaml.cs">
+      <DependentUpon>BaseAnticorrosiveCoatingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\FactoryInspectionView.xaml.cs">
+      <DependentUpon>FactoryInspectionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\StoresControlView.xaml.cs">
+      <DependentUpon>StoresControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\ControlWeldEditView.xaml.cs">
+      <DependentUpon>ControlWeldEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\WeldingMaterialEditView.xaml.cs">
+      <DependentUpon>WeldingMaterialEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\ControlWeldView.xaml.cs">
+      <DependentUpon>ControlWeldView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\WeldingMaterialView.xaml.cs">
+      <DependentUpon>WeldingMaterialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\PipeMaterialEditView.xaml.cs">
+      <DependentUpon>PipeMaterialEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\ForgingMaterialEditView.xaml.cs">
+      <DependentUpon>ForgingMaterialEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\RolledMaterialEditView.xaml.cs">
+      <DependentUpon>RolledMaterialEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\ForgingMaterialView.xaml.cs">
+      <DependentUpon>ForgingMaterialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\SheetMaterialEditView.xaml.cs">
+      <DependentUpon>SheetMaterialEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\PipeMaterialView.xaml.cs">
+      <DependentUpon>PipeMaterialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\RolledMaterialView.xaml.cs">
+      <DependentUpon>RolledMaterialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\MaterialViews\SheetMaterialView.xaml.cs">
+      <DependentUpon>SheetMaterialView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\PeriodicalControl\Gate\CoatingPorosityView.xaml.cs">
+      <DependentUpon>CoatingPorosityView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\PeriodicalControl\Gate\GatePeriodicalView.xaml.cs">
+      <DependentUpon>GatePeriodicalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\PeriodicalControl\PeriodicalControlEditView.xaml.cs">
+      <DependentUpon>PeriodicalControlEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\PeriodicalControl\PeriodicalControlView.xaml.cs">
+      <DependentUpon>PeriodicalControlView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\PIDEditView.xaml.cs">
+      <DependentUpon>PIDEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\CustomerView.xaml.cs">
+      <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\SpecificationView.xaml.cs">
+      <DependentUpon>SpecificationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\ProductTypeView.xaml.cs">
+      <DependentUpon>ProductTypeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EntityViews\JournalNumbersView.xaml.cs">
+      <DependentUpon>JournalNumbersView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCPPage.xaml.cs">
+      <DependentUpon>TCPPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TCPViews\TCPView.xaml.cs">
+      <DependentUpon>TCPView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Styles\ProjectStyles\ButtonStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\ComboBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\DataGridStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\GroupBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\DatePickerStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\ListBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\TreeViewStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\MenuStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\MetroWindowResources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\Resources.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\ScrollBarStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\LabelStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\TextBlockStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\PageStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Separators.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ListBoxes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Comboboxes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\ContentControls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\DataGrids.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Defaults.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Icons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Menu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\TabControlStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\TextBoxStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\ProjectStyles\WindowStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BallValveMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DailyWorkReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\MainFlangeSealingEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\MainFlangeSealingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\ColumnEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\ColumnView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\CoverSleeve008EditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\CoverSleeve008View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\Ring043EditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\Ring043View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\Ring047EditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\Ring047View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EntityViews\ServiceWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FileWorkViews\FileStorageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FileWorkViews\AddFileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\InputControlTCPPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\JournalReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FOMReportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DailyReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PeriodicalControlTCPPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SheetGateValveMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\AssemblyUnit\SheetGateValveEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\AssemblyUnit\SheetGateValveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\RunningSleeveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\NozzleEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\NozzleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\RunningSleeveEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\CounterFangeEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\AssemblyUnitSealingEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\FrontalSaddleSealingEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\AssemblyUnitSealingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\ScrewNutEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\FrontalSaddleSealingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\ScrewStudEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\ScrewNutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\SaddleEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\SaddleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\GateEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\GateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\SpringEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\ShearPinEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\ScrewStudView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\SpringView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\SpindleEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\CounterFlangeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\ShearPinView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\Valve\SpindleView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\CoverFlangeEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\CoverFlangeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\WeldGateValveCaseEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\WeldGateValveCoverEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\CoverSleeveEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\WeldGateValveCaseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\WeldGateValveCoverView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\CoverSleeveView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\CaseBottomEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\DetailViews\WeldGateValve\CaseBottomView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\AnticorrosiveCoating\BaseAnticorrosiveCoatingEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\AnticorrosiveCoating\BaseAnticorrosiveCoatingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\FactoryInspectionView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\StoresControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\ControlWeldEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\WeldingMaterialEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\ControlWeldView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\WeldingMaterialView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\PipeMaterialEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\ForgingMaterialEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\RolledMaterialEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\ForgingMaterialView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\SheetMaterialEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\PipeMaterialView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\RolledMaterialView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\MaterialViews\SheetMaterialView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\PeriodicalControl\Gate\CoatingPorosityView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\PeriodicalControl\Gate\GatePeriodicalView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\PeriodicalControl\PeriodicalControlEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\PeriodicalControl\PeriodicalControlView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\PIDEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\CustomerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\SpecificationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\ProductTypeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\JournalNumbersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TCPPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TCPViews\TCPView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\EntityViews\InspectorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ViewModels\InspectorVM.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="Views\EntityViews\InspectorView.xaml.cs">
+      <DependentUpon>InspectorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Styles\Texts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\UserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\PasswordWindow.resx">
+      <DependentUpon>PasswordWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="README.md" />
+    <None Include="Templates\BaseJournalReport.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{aa585f41-2523-4358-981e-ba5e89d4287e}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataLayer\DataLayer.csproj">
+      <Project>{0e8a81b0-1d71-4415-aebb-58df6949e70e}</Project>
+      <Name>DataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\analyzers\dotnet\cs\Microsoft.CodeAnalysis.VersionCheckAnalyzer.resources.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\BackgroundTN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Transneft lcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\MainMenuBackgroundTN.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.6.0.0\build\Fody.targets" Condition="Exists('..\packages\Fody.6.0.0\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.6.0.0\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.6.0.0\build\Fody.targets'))" />
+    <Error Condition="!Exists('..\packages\PropertyChanged.Fody.3.1.3\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PropertyChanged.Fody.3.1.3\build\PropertyChanged.Fody.props'))" />
+    <Error Condition="!Exists('..\packages\SQLite.3.13.0\build\net45\SQLite.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLite.3.13.0\build\net45\SQLite.props'))" />
+    <Error Condition="!Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.1\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.1\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets'))" />
+    <Error Condition="!Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.14\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.14\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.Design.2.2.6\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.8\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props'))" />
+  </Target>
+  <Import Project="..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets" Condition="Exists('..\packages\NETStandard.Library.2.0.3\build\netstandard2.0\NETStandard.Library.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.osx.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.osx.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.v110_xp.1.1.12\build\net35\SQLitePCLRaw.lib.e_sqlite3.v110_xp.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.1\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.2.0.1\build\net461\SQLitePCLRaw.lib.e_sqlite3.targets')" />
+  <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.14\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.14\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" />
+</Project>

@@ -1,0 +1,167 @@
+﻿<Page x:Class="Supervision.Views.PeriodicalControlTCPPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Supervision.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1000"
+      Title="MainMenu"
+      Style="{StaticResource StandardPage}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Label Style="{StaticResource StandardLabel}"
+               HorizontalAlignment="Center"
+               Content="ПТК ЗШ ПЕРЕОДИЧЕСКИЙ КОНТРОЛЬ"/>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource StandardButton}"
+                Grid.Row="0"
+                
+                        Margin="50, 10, 50, 10"
+                        Content="КСС"
+                        FontSize="{StaticResource Hi}"
+                        Command="{Binding ControlWeldTCPOpen}"/>
+
+            <Button Style="{StaticResource StandardButton}"
+                Grid.Row="0"
+                        Grid.Column="2"
+                        Margin="50, 10, 50, 10"
+                        Content="Контроль ТО"
+                        FontSize="{StaticResource Hi}"
+                        Command="{Binding NDTTCPOpen}"/>
+
+            <Button Style="{StaticResource StandardButton}"
+                Grid.Row="1"
+                        Grid.Column="4"
+                        Margin="50, 10, 50, 10"
+                        Content="Складирование материалов"
+                        FontSize="{StaticResource Hi}"
+                        Command="{Binding StoresControlTCPOpen}"/>
+
+            <Button Style="{StaticResource StandardButton}"
+                Grid.Row="0"
+                        Grid.Column="4"
+                        Margin="50, 10, 50, 10"
+                        Content="Контроль разрешительной документации"
+                        FontSize="{StaticResource Hi}"
+                        Command="{Binding FactoryInspectionTCPOpen}"/>
+
+            <Button Style="{StaticResource StandardButton}"
+                Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="50, 10, 50, 10"
+                        Content="Режимы сварки"
+                        FontSize="{StaticResource Hi}"
+                        Command="{Binding WeldingProceduresTCPOpen}"/>
+
+        </Grid>
+
+        <Separator Style="{StaticResource HorizontalSeparator}"
+                   Grid.Row="2"/>
+
+        <Label Style="{StaticResource StandardLabel}"
+               Grid.Row="3"
+               HorizontalAlignment="Center"
+               Content="ШИБЕР ПЕРЕОДИЧЕСКИЙ КОНТРОЛЬ"/>
+
+        <Grid Grid.Row="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource StandardButton}"
+                Grid.Row="0"
+                
+                        Margin="50, 10, 50, 10"
+                        Content="Хим. состав среды для обезжиривания"
+                        FontSize="{StaticResource Hi}"
+                        Command="{Binding DegreasingChemicalCompositionTCPOpen}"/>
+
+            <Button Style="{StaticResource StandardButton}"
+                Grid.Row="0"
+                        Grid.Column="2"
+                        Margin="50, 10, 50, 10"
+                        Content="Хим. состав раствора для нанесения покрытия"
+                        FontSize="{StaticResource Hi}"
+                        Command="{Binding CoatingChemicalCompositionTCPOpen}"/>
+
+            <Button Style="{StaticResource StandardButton}"
+                Grid.Row="1"
+                        Grid.Column="4"
+                        Margin="50, 10, 50, 10"
+                        Content="Пористость покрытия"
+                        FontSize="{StaticResource Hi}"
+                        Command="{Binding CoatingPorosityTCPOpen}"/>
+
+            <Button Style="{StaticResource StandardButton}"
+                Grid.Row="0"
+                        Grid.Column="4"
+                        Margin="50, 10, 50, 10"
+                        Content="Пластичность покрытия"
+                        FontSize="{StaticResource Hi}"
+                        Command="{Binding CoatingPlasticityTCPOpen}"/>
+
+            <Button Style="{StaticResource StandardButton}"
+               Grid.Row="1"
+                        Grid.Column="0"
+                        Margin="50, 10, 50, 10"
+                        Content="Защитные свойства покрытия"
+                        FontSize="{StaticResource Hi}"
+                        Command="{Binding CoatingProtectivePropertiesTCPOpen}"/>
+
+        </Grid>
+
+        <Separator Style="{StaticResource HorizontalSeparator}"
+                   Grid.Row="5"/>
+
+        
+
+
+
+
+
+        <Button Style="{StaticResource StandardButton}"
+                Grid.Row="9"
+                Width="200"
+                HorizontalAlignment="Right"
+                Margin="10"
+                Content="Назад"
+                FontSize="{StaticResource Hi}"
+                Command="{Binding TCPPageOpen}"/>
+    </Grid>
+</Page>

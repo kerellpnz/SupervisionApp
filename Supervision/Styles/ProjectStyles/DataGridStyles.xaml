@@ -1,0 +1,179 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Resources.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <Style x:Key="StandardMainDataGrid" TargetType="DataGrid">
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="GridLinesVisibility" Value="All"/>
+        <Setter Property="HeadersVisibility" Value="All"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Foreground}"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="CanUserResizeColumns" Value="True"/>
+        <Setter Property="CanUserSortColumns" Value="True"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="SelectionUnit" Value="FullRow"/>
+        <Setter Property="Margin" Value="5 0 5 0"/>
+        <Setter Property="Background" Value="{StaticResource BackgroundTN}"/>
+        <Setter Property="RowBackground" Value="{StaticResource TextMainBoxBackground}"/>
+        <Setter Property="FontFamily" Value="{StaticResource BaseFont}"/>
+        <Style.Resources>
+            <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
+                <Setter Property="Width" Value="8"/>
+                <Setter Property="Background" Value="{StaticResource Foreground}"/>
+                <Setter Property="Cursor" Value="SizeWE"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="{x:Type DataGridColumnHeader}">
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="MinWidth" Value="50"/>
+                <Setter Property="MinHeight" Value="25"/>
+                <Setter Property="SeparatorVisibility" Value="Visible"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                            <Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border x:Name="BackgroundBorder" 
+                                            Background="{StaticResource LightBackground}"/>
+                                    <TextBlock Grid.Column="0" Foreground="{StaticResource Foreground}" 
+                                            HorizontalAlignment="Center" 
+                                            FontSize="{StaticResource Hi}" 
+                                            FontWeight="Normal">
+                                        <ContentPresenter Margin="6,3,6,3" VerticalAlignment="Center"/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="{x:Type DataGridCell}">
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="{StaticResource Foreground}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                            <Border Background="{TemplateBinding Background}" 
+                                    SnapsToDevicePixels="True">
+                                <ContentPresenter Margin="1" 
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource BackgroundHighlightedDataGrid}"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource BackgroundHighlightedDataGrid}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style.Resources>
+    </Style>
+
+    <Style x:Key="StandardDataGrid" TargetType="DataGrid">
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="GridLinesVisibility" Value="All"/>
+        <Setter Property="HeadersVisibility" Value="All"/>
+        <Setter Property="BorderBrush" Value="{StaticResource Foreground}"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="CanUserResizeColumns" Value="True"/>
+        <Setter Property="CanUserSortColumns" Value="True"/>
+        <Setter Property="SelectionMode" Value="Single"/>
+        <Setter Property="SelectionUnit" Value="FullRow"/>
+        <Setter Property="Margin" Value="5 0 5 0"/>
+        <Setter Property="Background" Value="{StaticResource LightBackground}"/>
+        <Setter Property="RowBackground" Value="{StaticResource TextBoxBackground}"/>
+        <Setter Property="FontFamily" Value="{StaticResource BaseFont}"/>
+        <Style.Resources>
+            <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
+                <Setter Property="Width" Value="8"/>
+                <Setter Property="Background" Value="{StaticResource Foreground}"/>
+                <Setter Property="Cursor" Value="SizeWE"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Thumb}">
+                            <Border Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="{x:Type DataGridColumnHeader}">
+                <Setter Property="SnapsToDevicePixels" Value="True"/>
+                <Setter Property="MinWidth" Value="50"/>
+                <Setter Property="MinHeight" Value="25"/>
+                <Setter Property="SeparatorVisibility" Value="Visible"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                            <Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Border x:Name="BackgroundBorder" 
+                                            Background="{StaticResource LightBackground}"/>
+                                    <TextBlock Grid.Column="0" Foreground="{StaticResource Foreground}" 
+                                            HorizontalAlignment="Center" 
+                                            FontSize="{StaticResource Regular}" 
+                                            FontWeight="Normal">
+                                        <ContentPresenter Margin="6,3,6,3" VerticalAlignment="Center"/>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            <Style TargetType="{x:Type DataGridCell}">
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Height" Value="auto"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="{StaticResource Foreground}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                            <Border Background="{TemplateBinding Background}" 
+                                    SnapsToDevicePixels="True">
+                                <ContentPresenter Margin="1" 
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource BackgroundHighlighted}"/>
+                                </Trigger>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource BackgroundHighlightedDataGrid2}"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Style.Resources>
+    </Style>
+</ResourceDictionary>
